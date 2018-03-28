@@ -33,9 +33,9 @@
         <!-- DISPLAY LETTERS BUTTON GROUP AND INPUT -->
           <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
               <div class="btn-group-lg mr-2" role="group" aria-label="First group">
-                <button type="button" class="btn btn-secondary">1</button>
-                <button type="button" class="btn btn-secondary">2</button>
-                <button type="button" class="btn btn-secondary">3</button>
+                <button type="button" class="btn btn-secondary" id="letter-1">1</button>
+                <button type="button" class="btn btn-secondary" id="letter-2">2</button>
+                <button type="button" class="btn btn-secondary" id="letter-3">3</button>
                
               </div>
               <div class="input-group">
@@ -52,71 +52,47 @@
                   <div class="card-header" id="headingOne">
                     <h5 class="mb-0">
                       <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Rules or Guidance
+                        What's happened?
                       </button>
                     </h5>
                   </div>
               
                   <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body">
-                      Lord Business has taken our hero Emmet. Lord Business's challenge to you is as follows - You have 8 guesses to guess the word. For each incorrect guess, a bit of emmet is shown. Should you fail to guess the word in 8 guesses, Emmet will be transported to the Island of Doom. But...should you guess the letters of the word before hitting 8 incorrect guesses, Emmet will be transported to a paradise of sorts. Ha! Let's see how you do.
+                      Lord Business has taken our hero Emmet. Lord Business's challenge to you is as follows - You have 8 guesses to guess the word. For each incorrect guess, a bit of emmet is shown. Should you fail to guess the word in <span class = "font-weight-bold">8 guesses</span> , Emmet will be transported to the Island of Doom. But...should you guess the letters of the word before hitting 8 incorrect guesses, Emmet will be transported to a paradise of sorts. Ha! Let's see how you do.
                     </div>
                   </div>
                 </div>
 
 
               </div>
-         <!-- VERTICAL ALIGN ITEMS -->
-    <div class="d-flex flex-row align-items-start row-hl">
-        <div class="p-4 item-hl"><img src="resources/img/01-lego-minifigure-emmet-row1-head.png"/> Item start</div>
-        <!-- <div class="p-4 item-hl">Flex Item</div>
-        <div class="p-4 item-hl">Flex Item</div> -->
-      </div>
-  
-      <br><br>
-  
-      <!-- VERTICAL ALIGN ITEMS -->
-      <div class="d-flex flex-row align-items-center row-hl">
-        <div class="p-4 item-hl">Flex Item</div>
-        <div class="p-4 item-hl">Flex Item</div>
-        <div class="p-4 item-hl">Flex Item</div>
-      </div>
-  
-      <br><br>
-  
-      <!-- VERTICAL ALIGN ITEMS -->
-      <div class="d-flex flex-row align-items-end row-hl">
-        <div class="p-4 item-hl">Flex Item</div>
-        <div class="p-4 item-hl">Flex Item</div>
-        <div class="p-4 item-hl">Flex Item</div>
-      </div>
-  
-      <br><br>
-         <!-- EQUAL WIDTH -->
-    
-  
-      <!-- EQUAL WIDTH MULTI ROW -->
-      <div class="row">
-        <div class="col-lg-6">
-            <div class="w-100 text-center text-light bg-dark" style="border:1px solid #333">Interesting the w-100 shuffle</div>
-            <div class="row">
-                <div class="col-lg-2" style="border:1px solid #333">Equal Width 1</div>
-                <div class="col-lg-2" style="border:1px solid #333">Equal Width 2</div>
-                <div class="col-lg-2" style="border:1px solid #333">Equal Width 3</div>
-              </div>
-
+         <!-- ROW 1 EMMET HEAD ROW -->
+    <div class="d-flex flex-row align-items-start">
+        <div class="p-0 item-hl" id="01-head"><img src="resources/img/01-lego-minifigure-emmet-row1-head-50.png"/></div>
         </div>
-         
-          
-        
-        <div class="col text-center text-dark bg-light" style="border:1px solid #333">Equal Width Multi</div>
-        <div class="col text-center text-dard bg-light" style="border:1px solid #333">Equal Width Multi</div>
   
-        <div class="col  text-center text-dark bg-light" style="border:1px solid #333">Equal Width Multi</div>
-        <div class="col  text-center text-dark bg-light" style="border:1px solid #333">Equal Width Multi</div>
+      <!-- ROW 2 EMMET TORSO AND ARMS -->
+      <div class="d-flex flex-row align-items-center">
+        <div class="p-0 item-hl"><img src="resources/img/03-lego-minifigure-emmet-row2-rt-arm-50.png"/></div>
+        <div class="p-0 item-hl"><img src="resources/img/02-lego-minifigure-emmet-row2-torso-50.png"/></div>
+        <div class="p-0 item-hl"><img src="resources/img/04-lego-minifigure-emmet-row2-lft-arm-50.png"/></div>
       </div>
-
-
+  
+  
+      <!--ROWS 3 LEGS & 4 FEET -->
+      <div class="d-flex flex-row">
+     
+            <div class="p-0 item-hl"><img src="resources/img/05-lego-minifigure-emmet-row3-right-leg-50.png"/></div>
+            <div class="p-0 item-hl"><img src="resources/img/06-lego-minifigure-emmet-row3-lftt-leg-50.png"/></div>
+    
+      </div>
+      <div class="d-flex flex-row">
+              <div class="p-0 item-hl"><img src="resources/img/07-lego-minifigure-emmet-row4-right-foot-50.png"/></div>
+              <div class="p-0 item-hl"><img src="resources/img/08-lego-minifigure-emmet-row4-lrt-foot-50.png"/></div>
+      </div>
+  
+      <br><br>
+    
 
         <div class="row mt-5 mx-auto">
           <h1 class="h1">Word Guesser</h1>
