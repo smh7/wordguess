@@ -24,10 +24,129 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Hints</a>
             </li>
-
           </ul>
         </div>
       </nav>
+
+      <div class="container" id="game">
+
+        <!-- DISPLAY LETTERS BUTTON GROUP AND INPUT -->
+          <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+              <div class="btn-group-lg mr-2" role="group" aria-label="First group">
+                <button type="button" class="btn btn-secondary">1</button>
+                <button type="button" class="btn btn-secondary">2</button>
+                <button type="button" class="btn btn-secondary">3</button>
+               
+              </div>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text" id="btnGroupAddon">Submit Guess</div>
+                </div>
+                <input type="text" class="form-control" placeholder="Your guess here" aria-label="Input group example" aria-describedby="btnGroupAddon">
+              </div>
+            </div>
+
+
+            <div id="accordion">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Rules or Guidance
+                      </button>
+                    </h5>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                      Lord Business has taken our hero Emmet. Lord Business's challenge to you is as follows - You have 8 guesses to guess the word. For each incorrect guess, a bit of emmet is shown. Should you fail to guess the word in 8 guesses, Emmet will be transported to the Island of Doom. But...should you guess the letters of the word before hitting 8 incorrect guesses, Emmet will be transported to a paradise of sorts. Ha! Let's see how you do.
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+         <!-- VERTICAL ALIGN ITEMS -->
+    <div class="d-flex flex-row align-items-start row-hl">
+        <div class="p-4 item-hl"><img src="resources/img/01-lego-minifigure-emmet-row1-head.png"/> Item start</div>
+        <!-- <div class="p-4 item-hl">Flex Item</div>
+        <div class="p-4 item-hl">Flex Item</div> -->
+      </div>
+  
+      <br><br>
+  
+      <!-- VERTICAL ALIGN ITEMS -->
+      <div class="d-flex flex-row align-items-center row-hl">
+        <div class="p-4 item-hl">Flex Item</div>
+        <div class="p-4 item-hl">Flex Item</div>
+        <div class="p-4 item-hl">Flex Item</div>
+      </div>
+  
+      <br><br>
+  
+      <!-- VERTICAL ALIGN ITEMS -->
+      <div class="d-flex flex-row align-items-end row-hl">
+        <div class="p-4 item-hl">Flex Item</div>
+        <div class="p-4 item-hl">Flex Item</div>
+        <div class="p-4 item-hl">Flex Item</div>
+      </div>
+  
+      <br><br>
+         <!-- EQUAL WIDTH -->
+    
+  
+      <!-- EQUAL WIDTH MULTI ROW -->
+      <div class="row">
+        <div class="col-lg-6">
+            <div class="w-100 text-center text-light bg-dark" style="border:1px solid #333">Interesting the w-100 shuffle</div>
+            <div class="row">
+                <div class="col-lg-2" style="border:1px solid #333">Equal Width 1</div>
+                <div class="col-lg-2" style="border:1px solid #333">Equal Width 2</div>
+                <div class="col-lg-2" style="border:1px solid #333">Equal Width 3</div>
+              </div>
+
+        </div>
+         
+          
+        
+        <div class="col text-center text-dark bg-light" style="border:1px solid #333">Equal Width Multi</div>
+        <div class="col text-center text-dard bg-light" style="border:1px solid #333">Equal Width Multi</div>
+  
+        <div class="col  text-center text-dark bg-light" style="border:1px solid #333">Equal Width Multi</div>
+        <div class="col  text-center text-dark bg-light" style="border:1px solid #333">Equal Width Multi</div>
+      </div>
+
+
+
+        <div class="row mt-5 mx-auto">
+          <h1 class="h1">Word Guesser</h1>
+              <blockquote class="blockquote m-3"> You have 6 guesses to guess all the letters</blockquote>
+        </div>
+          <div class="row my-3 mr-3 ">
+              <!-- FORM FOR INPUT OF GUESSES  -->
+              <div class="col-md-6">
+    
+                  <div class="input-group mb-3">
+                      <input type="text" class="form-control" id="guess-input" maxlength="1" placeholder="Your guess here" aria-label="User Guess" aria-describedby="basic-addon2">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" id="guess-btn" type="button">Submit Guess</button>
+                      </div>
+                    </div>
+              
+              </div>
+         
+            <!-- GUESSED WORDS DISPLAY AREA-->
+              <div class="col-md-6 ">
+                 <ul class="list-group">
+                     <li class="list-group-item messaging">What you have Guessed</li>
+                     <li class="list-group-item" id="special-message"></li>                 
+                     <li class="list-group-item" id="list-item-guessed"></li>
+                     <button type="button" class="btn btn-secondary" id="reset-btn">Reset Game</button>
+                   </ul>
+              </div>
+          </div>
+         </div>
+    
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
