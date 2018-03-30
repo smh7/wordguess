@@ -11,11 +11,11 @@
 */
 
 // VARIABLE DECLARATION
-let winningWord = "ZOO",
-      winWhenZeroLength = [],
+let winningWord = "CAT",
+      winWhenEmpty = ["C","A","T"],
       guessedWrong,
       guessesLeft = 8,
-      guessedAlready = [];
+      guessedAlready = ["M"];
 
 // UI ELEMENTS
 
@@ -31,15 +31,90 @@ const game = document.querySelector('#game'),
       guessedWrong5 = document.querySelector('btn-guessed-wr-5'),
       guessedWrong6 = document.querySelector('btn-guessed-wr-6'),
       guessedWrong7 = document.querySelector('btn-guessed-wr-7'),
-      emmetHead01 = document.querySelector('#01-head'),
-      emmetTorso02 = document.querySelector('#02-torso'),
-      emmetRtArm03 = document.querySelector('#03-rt-arm'),
-      emmetLftArm04 = document.querySelector('#04-lft-arm'),
-      emmetRtLeg05 = document.querySelector('#05-rt-leg'),
-      emmetLftLeg06 = document.querySelector('#06-lft-leg'),
-      emmetRtFoot07 = document.querySelector('#07-rt-foot'),
-      emmetLftFoot08 = document.querySelector('#08-lft-foot'),
+      emmetHead01 = document.querySelector('#a01-head'),
+      emmetTorso02 = document.querySelector('#a02-torso'),
+      emmetRtArm03 = document.querySelector('#a03-rt-arm'),
+      emmetLftArm04 = document.querySelector('#a04-lft-arm'),
+      emmetRtLeg05 = document.querySelector('#a05-rt-leg'),
+      emmetLftLeg06 = document.querySelector('#a06-lft-leg'),
+      emmetRtFoot07 = document.querySelector('#a07-rt-foot'),
+      emmetLftFoot08 = document.querySelector('#a08-lft-foot'),
       guessBtn = document.querySelector('#guess-btn'),
       guessInput = document.querySelector('#guess-input'),
       listMsg = document.querySelector('#special-message'),
       resetBtn = document.querySelector('#reset-btn');
+
+
+// Listen for Guess
+guessBtn.addEventListener('click', function(){
+      //e.preventDefault();
+      let guess = guessInput.value;
+      console.log("guess is " + guess);
+
+      // Validate - Has this letter been guessed?
+      (guessedAlready.includes(guess)) {
+            setMessage(`${guess} has already been guessed, try a different letter`, "red");
+            // Hoping that setting guess = empty string allows me to proceed
+            guess = " ";
+      }
+
+      
+
+
+
+
+      debugger
+      // expected output: 12
+      
+
+      // CHECK IF WON
+      if(guess === winningNum){
+            
+            // Disable input
+            //guess.guessInput.disabled = true;
+            // Change border color
+            guessInput.style.borderColor = 'green';
+            // Declare won
+            //setMessage("you won", 'green');
+            setMessage(`${winningNum} is correct, you win!`, 'green');
+
+      } else if(guessesLeft > 1){
+            setMessage("try again, " + guessesLeft + " guesses left.", 'blue');
+            guessesLeft--;
+            guessedAlready.push(guess);
+
+      } else {
+            setMessage("Sorry, you didn't win this time", 'blue');
+            guessInput.value = "";
+
+      }
+});
+
+// PLAY RESET EVENT LISTENER 
+// RESET guessesLeft, clear message
+// NEED to RESET THE winningNum
+
+resetBtn.addEventListener('click', function(){
+      window.location.reload();
+      
+
+});
+
+// GENERATE COMPUTER"s GUESS
+function getRandomNum(min, max){
+      return Math.floor(Math.random()*(max-min+1)+min);
+    }
+
+
+// Set Message - buggy, maybe alert, ugh
+function setMessage(msg, color){
+      listMsg.style.color = color;
+      listMsg.textContent = msg;
+}
+
+// List what has been guessed - not working
+function setGuessed(guessedVal){
+      listGuessed.textContent = guessedAlready;
+}
+
+
