@@ -64,7 +64,7 @@ resetBtn.addEventListener('click', function () {
 
 // Listen for Guess
 guessBtn.addEventListener('click', function () {
-      let guess = guessInput.value.toUpperCase();
+      let guess = guessInput.value.toUpperCase().trim();
 
       // Validate - Has this letter been guessed already?
       if (guessedAlready.includes(guess) || guess == " " ){
@@ -75,7 +75,12 @@ guessBtn.addEventListener('click', function () {
 
       // ADD GUESS TO GUESSED ALREADY ARRAY - PREVENTS RE-SUBMITS
       guessedAlready.push(guess);
+      console.log("here");
+      console.log("winningWordArray " + winningWord[0] + " guess " + guess);
+      console.log("winningWordArray " + winningWord[1] + " guess " + guess);
+      console.log("winningWordArray " + winningWord[2] + " guess " + guess);
       
+      // MAYBE PUT THIS INTO A FUNCTION THAT GETS CALLED
       // Check whether Guessed Letter matches any letter in winWordArray
             for (i = 0; i < 3; i++) {
                   if ( winWordArray[i] === guess) {
@@ -90,16 +95,8 @@ guessBtn.addEventListener('click', function () {
                         updateCorrectLetterUI(i, guess);
 
 
-                  // }  else {
-                  //       console.log("winWordArray " + winningWord[i] + " !=== " + " guess " + guess + " index i is " + i  );
-                  // }
-
-                  // } else {
-                  //       console.log("index is " + i);
-                  //       console.log("guess " + guess + " !== " + winWordArray[i]);
-                  //       console.log()
-
-                  // }
+                  }  else {
+                        console.log("winWordArray " + winningWord[i] + " !=== " + " guess " + guess + " index i is " + i );
 
             } 
       }
@@ -145,10 +142,12 @@ guessBtn.addEventListener('click', function () {
                   // Declare won
                   setMessage(`${winningWord} is correct, you win!`, 'green');
 
-            } else if (guessesLeft > 0) {
+            // } else if (guessesLeft > 0) {
+            } else {
                   setMessage("try again, " + guessesLeft + " guesses left.", 'blue');
-            
             }
+            
+      
             // CLEAR INPUT
             guessInput.value = " ";
             // Reset GUESSED RIGHT

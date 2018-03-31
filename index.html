@@ -25,7 +25,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Rules</a>
+          <a class="nav-link" href="#letter-freq">Hints</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Hints</a>
@@ -38,10 +38,10 @@
 
     <!-- DISPLAY LETTERS BUTTON GROUP AND INPUT -->
     <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
-      <div class="btn-group-lg mr-2" role="group" aria-label="First group">
-        <button type="button" class="btn btn-secondary" id="letter-0">0</button>
-        <button type="button" class="btn btn-secondary" id="letter-1">1</button>
-        <button type="button" class="btn btn-secondary" id="letter-2">2</button>
+      <div class="btn-group-lg mr-2" role="group" id="correctUILetterList" aria-label="First group">
+        <button type="button" class="btn btn-secondary" id="btn-guess-right-0">_</button>
+        <button type="button" class="btn btn-secondary" id="btn-guess-right-1">_</button>
+        <button type="button" class="btn btn-secondary" id="btn-guess-right-2">_</button>
 
       </div>
       <div class="input-group">
@@ -53,16 +53,8 @@
     </div>
     <!-- DISPLAY GUESSED LETTERS -->
     <div class="btn-toolbar mt-3 mb-1" role="toolbar" aria-label="Toolbar with button groups">
-      <div class="btn-group mr-2" role="group" aria-label="First group">
+      <div class="btn-group mr-2" id="incorrect-guesses" role="group" aria-label="First group">
         <h4>Incorrect Guesses</h4>
-        <button type="button" class="btn btn-light" id="btn-guessed-wr-0">0</button>
-        <button type="button" class="btn btn-light" id="btn-guessed-wr-1">1</button>
-        <button type="button" class="btn btn-light" id="btn-guessed-wr-2">2</button>
-        <button type="button" class="btn btn-light" id="btn-guessed-wr-3">3</button>
-        <button type="button" class="btn btn-light" id="btn-guessed-wr-4">4</button>
-        <button type="button" class="btn btn-light" id="btn-guessed-wr-5">5</button>
-        <button type="button" class="btn btn-light" id="btn-guessed-wr-6">6</button>
-        <button type="button" class="btn btn-light" id="btn-guessed-wr-7">7</button>
       </div>
     </div>
 
@@ -93,20 +85,20 @@
     <!-- ROW 1 EMMET HEAD ROW -->
     <div class="d-flex flex-row align-items-start">
       <div class="p-0 item-hl">
-        <img src="resources/img/01-lego-minifigure-emmet-row1-head-50.png" id="a01-head" />
+        <img src="resources/img/01-lego-minifigure-emmet-row1-head-50.png" id="a01-head" style="opacity:0.2" />
       </div>
     </div>
 
     <!-- ROW 2 EMMET TORSO AND ARMS -->
     <div class="d-flex flex-row align-items-center">
       <div class="p-0 item-hl">
-        <img src="resources/img/03-lego-minifigure-emmet-row2-rt-arm-50.png" id="a03-rt-arm" />
+        <img src="resources/img/03-lego-minifigure-emmet-row2-rt-arm-50.png" id="a03-rt-arm"  style="opacity:0.2"/>
       </div>
       <div class="p-0 item-hl">
-        <img src="resources/img/02-lego-minifigure-emmet-row2-torso-50.png" id="a02-torso" />
+        <img src="resources/img/02-lego-minifigure-emmet-row2-torso-50.png" id="a02-torso" style="opacity:0.2" />
       </div>
       <div class="p-0 item-hl">
-        <img src="resources/img/04-lego-minifigure-emmet-row2-lft-arm-50.png" id="a04-lft-arm" />
+        <img src="resources/img/04-lego-minifigure-emmet-row2-lft-arm-50.png" id="a04-lft-arm"  style="opacity:0.2"/>
       </div>
     </div>
 
@@ -115,19 +107,19 @@
     <div class="d-flex flex-row">
 
       <div class="p-0 item-hl">
-        <img src="resources/img/05-lego-minifigure-emmet-row3-right-leg-50.png" id="a05-rt-leg" />
+        <img src="resources/img/05-lego-minifigure-emmet-row3-right-leg-50.png" id="a05-rt-leg" style="opacity:0.2" />
       </div>
       <div class="p-0 item-hl">
-        <img src="resources/img/06-lego-minifigure-emmet-row3-lftt-leg-50.png" id="a06-lft-leg" />
+        <img src="resources/img/06-lego-minifigure-emmet-row3-lftt-leg-50.png" id="a06-lft-leg" style="opacity:0.2" />
       </div>
 
     </div>
     <div class="d-flex flex-row">
       <div class="p-0 item-hl">
-        <img src="resources/img/07-lego-minifigure-emmet-row4-right-foot-50.png" id="a07-rt-foot" />
+        <img src="resources/img/07-lego-minifigure-emmet-row4-right-foot-50.png" id="a07-rt-foot" style="opacity:0.2" />
       </div>
       <div class="p-0 item-hl">
-        <img src="resources/img/08-lego-minifigure-emmet-row4-lrt-foot-50.png" id="a08-lft-foot" />
+        <img src="resources/img/08-lego-minifigure-emmet-row4-lrt-foot-50.png" id="a08-lft-foot"  style="opacity:0.2" />
       </div>
     </div>
 
@@ -145,6 +137,12 @@
       </ul>
     </div>
 
+  </div>
+  <div class="row">
+    <div class="col-md-6 m-5" id="#letter-freq">
+      <h3 class="h3">Letter Frequencies</h3>
+      <img src="resources/img/letter-frequency-distribution.PNG" alt="" srcset="">
+    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
