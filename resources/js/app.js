@@ -46,9 +46,7 @@ const game = document.querySelector('#game'),
       listMsg = document.querySelector('#special-message'),
       resetBtn = document.querySelector('#reset-btn');
 
-
-
-      
+// CREATE AN ARRAY FOR EMMET UI ELEMENTS      
       emmetUI = [
             emmetHead01,
             emmetTorso02,
@@ -59,127 +57,135 @@ const game = document.querySelector('#game'),
             emmetRtFoot07,
             emmetLftFoot08];
 
-var contains = function (haystack, needle) {
-   return !!~haystack.indexOf(needle);
-};
+// PLAY RESET EVENT LISTENER 
+resetBtn.addEventListener('click', function () {
+      window.location.reload();
+});
 
 // Listen for Guess
 guessBtn.addEventListener('click', function () {
-      //e.preventDefault();
-      let guess = guessInput.value;
-      console.log("guess is " + guess);
+      let guess = guessInput.value.toUpperCase();
 
-      // Validate - Has this letter been guessed?
-      // guessedAlready.includes(guess) {
-       
-      if (guessedAlready.includes(guess)){
+      // Validate - Has this letter been guessed already?
+      if (guessedAlready.includes(guess) || guess == " " ){
             setMessage(`${guess} has already been guessed, try a different letter`, "red");
             // Hoping that setting guess = empty string allows me to proceed
             guessInput.value = " ";
       }
 
-      for (i = 0; i < winningWord.length; i++) {
-                  if (guess === winWordArray[i]) {
-                        console.log("guess " + guess + " equals " + winWordArray[i]);
+      // ADD GUESS TO GUESSED ALREADY ARRAY - PREVENTS RE-SUBMITS
+      guessedAlready.push(guess);
+      
+      // Check whether Guessed Letter matches any letter in winWordArray
+            for (i = 0; i < 3; i++) {
+                  if ( winWordArray[i] === guess) {
                         guessedRight = true;
                         winWhenAllOnes[i] = 1;
                         guessedRightUI[i] = guess;
                         numberGuessedRight++;
-                       // Create button element
-                        const buttonCorrectGuess = document.createElement('button');
-                        // Add Class
-                        buttonCorrectGuess.className = 'btn btn-primary';
-                        buttonCorrectGuess.appendChild(document.createTextNode(guess));
-                        correctGuessUI.appendChild(buttonCorrectGuess);
-
+                        console.log("winWordArray " + winningWord[i] + " === " + " guess " + guess + " index i is " + i  );
+                        // FIND INDEX THIS LETER SHOULD BE ASSIGN TO VARIABLE CAN USE AS ID AND ORDERING OF ELEMENTS TO SPELL WORD
+                        // maybe should have done this so could add class float-left, float-middle, float-right
+                        var uiElementIndex = i;
+                        // UPDATE BUTTON ELEMENT
+                        if(uiElementIndex === 0){
+                              var buttonCorrectGuess0 = document.getElementById('btn-guess-right-0')
+                              buttonCorrectGuess0.innerHTML = guess;   
+                        } else if(uiElementIndex === 1){
+                              var buttonCorrectGuess0 = document.getElementById('btn-guess-right-1')
+                              buttonCorrectGuess0.innerHTML = guess;   
+                        } else if(uiElementIndex === 2){
+                              var buttonCorrectGuess0 = document.getElementById('btn-guess-right-2')
+                              buttonCorrectGuess0.innerHTML = guess;
+                        }
+                        // // Create button element
+                        // const buttonCorrectGuess = document.createElement('button');
+                        // // Add Class
+                        // buttonCorrectGuess.className = 'btn btn-primary';
+                        // // Add ID
+                        // buttonCorrectGuess.id = "uiElementIndex";
+                        // buttonCorrectGuess.appendChild(document.createTextNode(guess));
+                        // // Add to document
+                        // // Will Need to Put these in correct order
+                        // correctGuessUI.appendChild(buttonCorrectGuess);
                   } else {
-                        console.log("index is " + i);
-                        console.log("guess " + guess + " !== " + winWordArray[i]);
-                        console.log()
-
+                        console.log("winWordArray " + winningWord[i] + " !=== " + " guess " + guess + " index i is " + i  );
                   }
 
-            } 
-            // UPDATE WHAT WAS GUESSED
-            guessedAlready.push(guess);
+                  // } else {
+                  //       console.log("index is " + i);
+                  //       console.log("guess " + guess + " !== " + winWordArray[i]);
+                  //       console.log()
 
-            // UPDATES IF GUESS WAS INCORRECT
+                  // }
+
+            } 
+            // UPDATE GUESSES LEFT
+            guessesLeft--;
+
+
+            // UPDATES IF GUESS WAS INCORRECT 
             if(guessedRight === false) {
-                  console.log("guessed wrong and value of guess is " + guess);
                   incorrectGuessIndex ++;
-                  guessesLeft--;
-                  // Create button element
+
+                  // Create button element as UI Element to display incorrect guesses
                   const buttonWrongGuess = document.createElement('button');
                   // Add Class
                   buttonWrongGuess.className = 'btn btn-light';
+                  // Add Text
                   buttonWrongGuess.appendChild(document.createTextNode(guess));
+                  // Add to document section
                   incorrectUI.appendChild(buttonWrongGuess);
-
-                  console.log(buttonWrongGuess);
-                  // guessedWrongUI[incorrectGuessIndex].innerHTML = "M";
-                  emmetUI[incorrectGuessIndex].style.opacity = "1.0"
-                  
+                  // Make Next Emmet Tile More Visible
+                  emmetUI[incorrectGuessIndex].style.opacity = "1.0";
+            
+                  // CHECK iF LOST
+                  if(guessesLeft === 0) {
+                        setMessage("Sorry, you didn't win this time", 'blue');
+                        guessInput.disabled = true;
+                        // guessInput.value = "";
+                  }
             }
-            // CHECK iF LOST
-             if(guessesLeft === 0) {
-                   console.log("it's done");
-                  
-
-             }
-
-           
-
-            // expected output: 12
+            
 
 
             // CHECK IF WON
             if (numberGuessedRight === 3) {
-                   // success
-                   // change class btn-primary to btn-success
-                   // clear and disable input field
-                   // show Emmet in paradise
+                        // success
+                        // change class btn-primary to btn-success
+                        
+                        // show Emmet in paradise
                   // Disable input
-                  //guess.guessInput.disabled = true;
+                  guessInput.disabled = true;
                   // Change border color
                   guessInput.style.borderColor = 'green';
                   // Declare won
-                  //setMessage("you won", 'green');
                   setMessage(`${winningWord} is correct, you win!`, 'green');
 
-            } else if (guessesLeft > 1) {
+            } else if (guessesLeft > 0) {
                   setMessage("try again, " + guessesLeft + " guesses left.", 'blue');
-                  guessesLeft--;
             
-
-            } else {
-                  setMessage("Sorry, you didn't win this time", 'blue');
-                  guessInput.value = "";
-
             }
+            // CLEAR INPUT
             guessInput.value = " ";
+            // Reset GUESSED RIGHT
+            guessedRight = false;
             
-      
-      });
-            // PLAY RESET EVENT LISTENER 
-            // RESET guessesLeft, clear message
-            // NEED to RESET THE winningNum
-
-            resetBtn.addEventListener('click', function () {
-                  window.location.reload();
+            
+            
+});
 
 
-            });
-
-            // GENERATE COMPUTER"s GUESS
-            function getRandomNum(min, max) {
-                  return Math.floor(Math.random() * (max - min + 1) + min);
-            }
+// GENERATE COMPUTER"s GUESS
+function getRandomNum(min, max) {
+      return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
 
-            // Set Message - buggy, maybe alert, ugh
-            function setMessage(msg, color) {
-                  listMsg.style.color = color;
-                  listMsg.textContent = msg;
-            }
+// Set Message - buggy, maybe alert, ugh
+function setMessage(msg, color) {
+      listMsg.style.color = color;
+      listMsg.textContent = msg;
+}
 
           
