@@ -80,37 +80,19 @@ guessBtn.addEventListener('click', function () {
             for (i = 0; i < 3; i++) {
                   if ( winWordArray[i] === guess) {
                         guessedRight = true;
-                        winWhenAllOnes[i] = 1;
                         guessedRightUI[i] = guess;
                         numberGuessedRight++;
                         console.log("winWordArray " + winningWord[i] + " === " + " guess " + guess + " index i is " + i  );
                         // FIND INDEX THIS LETER SHOULD BE ASSIGN TO VARIABLE CAN USE AS ID AND ORDERING OF ELEMENTS TO SPELL WORD
                         // maybe should have done this so could add class float-left, float-middle, float-right
-                        var uiElementIndex = i;
+                       
                         // UPDATE BUTTON ELEMENT
-                        if(uiElementIndex === 0){
-                              var buttonCorrectGuess0 = document.getElementById('btn-guess-right-0')
-                              buttonCorrectGuess0.innerHTML = guess;   
-                        } else if(uiElementIndex === 1){
-                              var buttonCorrectGuess0 = document.getElementById('btn-guess-right-1')
-                              buttonCorrectGuess0.innerHTML = guess;   
-                        } else if(uiElementIndex === 2){
-                              var buttonCorrectGuess0 = document.getElementById('btn-guess-right-2')
-                              buttonCorrectGuess0.innerHTML = guess;
-                        }
-                        // // Create button element
-                        // const buttonCorrectGuess = document.createElement('button');
-                        // // Add Class
-                        // buttonCorrectGuess.className = 'btn btn-primary';
-                        // // Add ID
-                        // buttonCorrectGuess.id = "uiElementIndex";
-                        // buttonCorrectGuess.appendChild(document.createTextNode(guess));
-                        // // Add to document
-                        // // Will Need to Put these in correct order
-                        // correctGuessUI.appendChild(buttonCorrectGuess);
-                  } else {
-                        console.log("winWordArray " + winningWord[i] + " !=== " + " guess " + guess + " index i is " + i  );
-                  }
+                        updateCorrectLetterUI(i, guess);
+
+
+                  // }  else {
+                  //       console.log("winWordArray " + winningWord[i] + " !=== " + " guess " + guess + " index i is " + i  );
+                  // }
 
                   // } else {
                   //       console.log("index is " + i);
@@ -120,6 +102,7 @@ guessBtn.addEventListener('click', function () {
                   // }
 
             } 
+      }
             // UPDATE GUESSES LEFT
             guessesLeft--;
 
@@ -171,7 +154,7 @@ guessBtn.addEventListener('click', function () {
             // Reset GUESSED RIGHT
             guessedRight = false;
             
-            
+               
             
 });
 
@@ -188,4 +171,17 @@ function setMessage(msg, color) {
       listMsg.textContent = msg;
 }
 
-          
+function updateCorrectLetterUI(index, letter) {
+      
+      if(index === 0){
+            var buttonCorrectGuess0 = document.getElementById('btn-guess-right-0')
+            buttonCorrectGuess0.innerHTML = letter;   
+      } else if(index === 1){
+            var buttonCorrectGuess0 = document.getElementById('btn-guess-right-1')
+            buttonCorrectGuess0.innerHTML = letter;   
+      } else if(index === 2){
+            var buttonCorrectGuess0 = document.getElementById('btn-guess-right-2')
+            buttonCorrectGuess0.innerHTML = letter;
+      }
+
+};
