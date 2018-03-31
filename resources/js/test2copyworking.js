@@ -28,17 +28,6 @@ let guessesLeft = 8;
 let guessedRight = false;
 let whatToRemove = [];
 
-
-var contains = function (winWhenEmpty, guess) {
-  return !!~haystack.indexOf(needle);
-};
-
-// can be used like so now:
-if (contains(items, 3452)) {
-  // do something else...
-}
-
-
 console.log("winWhenEmpty initial " + winWhenEmpty)
 for(i=0; i < winWhenEmpty.length; i++) {
   if(guess === winWhenEmpty[i]){
